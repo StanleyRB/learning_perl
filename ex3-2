@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+use v5.24;
+
+my @names = qw/fred betty barney dino wilma
+				pebbles bamm-bamm/;
+my @inputs, my $input;
+chomp(@inputs = <STDIN>);
+#foreach $input (@inputs) {
+#	print @names[$input-1]."\n";
+#}
+
+@inputs = sort @inputs;
+foreach $input (@inputs) {
+	print $input."\n";
+}
+
+foreach $input (@inputs) {
+	print $input." ";
+}

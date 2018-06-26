@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+use v5.24;
+
+say "input the number:";
+chomp(my $nu = <STDIN>);
+say "input the string:";
+chomp(my $string = <STDIN>);
+say "the product of inputs is ".$string x $nu;
