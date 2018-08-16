@@ -1,0 +1,41 @@
+#!/usr/bin/perl
+use v5.26;
+
+#6-1
+#my %name_hash = (
+#	fred	=>	'flintstone',
+#	barney 	=>	'rubble',
+#	wilma	=>	'flintsone'
+#);
+#
+#print "please input the name:";
+#chomp(my $name = <STDIN>);
+#
+#print "the family name of $name is $name_hash{$name}\n";
+
+#6-2
+#print "Please input the words:\n";
+#my %count_hash;
+#while (<>) {
+#	chomp;
+#	$count_hash{$_}++;
+#}
+#
+#while ((my $name, my $times) = each %count_hash) {
+#	print "$name => $times\n";
+#}
+
+#6-3
+my $longest_key = 0;
+foreach my $key (keys %ENV) {
+	my $length = length $key;
+	if ($length > $longest_key) {
+		$longest_key = $length;
+	}
+}
+print "**********************\n";
+print "$longest_key\n";
+foreach my $key (sort keys %ENV) {
+	my $val = $ENV{$key};
+	printf "%-${longest_key}s %s\n", $key, $val;
+}
