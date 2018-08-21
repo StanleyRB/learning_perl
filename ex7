@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+use v5.24;
+
+while (<>) {
+#ex1
+#	if (/fred/) {
+#ex2
+#	if (/(f|F)red/) {
+#ex3
+#	if (/\./) {
+#ex4
+#	if (/[A-Z][a-z]+/) {
+#ex5
+#	if (/(\S)\1/) {
+#ex6
+#	if (/\bwilma\b/ && /\bfred\b/) {
+#	if (/wilma.*fred|fred.*wilma/) {
+		print $_;
+	}
+}
