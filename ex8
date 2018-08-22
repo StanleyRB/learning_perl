@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+
+use v5.24;
+
+while (<>) {
+	chomp;
+#ex1
+#	if (/match/) {
+#ex2
+#	if (/\w*a\Z/) {
+#	if (/a\b/) {
+#	if (/(?<word>\w*a)\Z/) {
+#ex5
+#	if (m/
+#			(?<word>\b\w*a\b)
+#			(?<upto5>.{0,5})
+#		/sx) {
+#ex3
+#		print '$1 contains '."'$1'\n";
+#		print "Matched: |$`<$&>$'|\n";
+#		print "'word' contains '$+{word}'\n";
+#		print "remaining '$+{upto5}'\n";
+#ex6
+	if (/\s+\z/) {
+		my $visible_ws = $&.'0';
+		print "Matched: |$`<$visible_ws>$'|\n";
+	} else {
+		print "No match |$_|\n";
+	}
+}
+
