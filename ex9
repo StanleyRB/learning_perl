@@ -1,2 +1,38 @@
 #!/usr/bin/perl
 use v5.24;
+
+#ex1
+#my $what = 'fred|barney';
+#
+#while (<>) {
+#	if (/($what){3}/) {
+#		print $_;
+#	}
+#}
+
+
+#ex2,3
+my $input = $ARGV[0];
+if (! defined $input) {
+	die "Usage:$0 filename";
+}
+
+my $output = $input.".out";
+
+my $in_fh, my $output_fh;
+if (! open $in_fh, '<', $input) {
+	die "Can't open $input: $!";
+}
+
+if (! open $output_fh, '>', $output) {
+	die "Can't open $output: $!";
+}
+while (<$in_fh>) {
+#	s/fred/\ularry/gi;
+	chomp;
+	s/Fred/\n/gi;
+	s/Wilma/Fred/gi;
+	s/\n/Wilma/g;
+	print $output_fh "$_\n";
+#	print $output_fh $_;
+}
