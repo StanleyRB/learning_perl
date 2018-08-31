@@ -14,30 +14,47 @@ use warnings;
 #
 #say "12dsf" * '12.3';
 
-my $alpha = chr( 0x03c9 );
-print "$alpha\n";
+#my $alpha = chr( 0x03c9 );
+#print "$alpha\n";
+#
+#my @fred = qw(eating rocks is wrong);
+#my $fred = "right";
+#say "this is $fred[3]";
+#say "this is ${fred}[3]";
+#say "this is $fred"."[3]";
+#say "this is $fred\[3]\n";
+#
+#my @rocks = qw/ bedrock slate lava /;
+#my $rock = "";
+#foreach $rock(@rocks) {
+#	$rock = "\t$rock";
+#	$rock .= "\n";
+#}
+#say "the rocks are:", @rocks;
+#say "the control value is:", $rock;
+#
+#say "input lines:";
+#my @lines = <STDIN>;
+#@lines = reverse @lines;
+#print @lines;
+#
+#chomp(my $line = <STDIN>);
+#say $line;
+#say chomp($line);
 
-my @fred = qw(eating rocks is wrong);
-my $fred = "right";
-say "this is $fred[3]";
-say "this is ${fred}[3]";
-say "this is $fred"."[3]";
-say "this is $fred\[3]\n";
+#$_ = "a b";
+#if (/(a|c) b/) {
+#	print "It matched!\n";
+#}
 
-my @rocks = qw/ bedrock slate lava /;
-my $rock = "";
-foreach $rock(@rocks) {
-	$rock = "\t$rock";
-	$rock .= "\n";
+#my $names = "Fred Flintstone and Wilma Flintstone";
+#if ($names =~ m/(?<last_name>\w+) and \w+ \g{last_name}/) {
+#	say "I saw $+{last_name}";
+#	print $`.$&.$';
+#}
+
+foreach my $try (0, undef, '0', 1, 25) {
+	print "Trying [$try] ----> ";
+	my $value = $try // 'default';
+	say "\tgot[$value]";
 }
-say "the rocks are:", @rocks;
-say "the control value is:", $rock;
-
-say "input lines:";
-my @lines = <STDIN>;
-@lines = reverse @lines;
-print @lines;
-
-chomp(my $line = <STDIN>);
-say $line;
-say chomp($line);
