@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+use v5.24;
+
+#ex1
+sub testAttr {
+	my $filename = shift @_;
+	if (! -e $filename) {
+		print "File $filename doesn't exist\n";
+	}
+	else {
+		if (-r _) {
+			print "File $filename is readable\n";
+		}
+		if (-w _) {
+			print "File $filename is writable\n";
+		}
+		if (-x _) {
+			print "File $filename is execuatble\n";
+		}
+	}
+}
+
+die "No file supplied\n" unless @ARGV;
+my $oldest = 0;
+my $oldestname;
+foreach (@ARGV) {
+#ex1
+#	&testAttr($_);
+#ex2
+#	my $days = -M;
+#	if ($days > $oldest) {
+#		$oldest = $days;
+#		$oldestname = $_;
+#	}
+#ex3
+	say "File $_ is readable and writable" if -o -r -w $_;
+}
+
+#print "Oldest file:$oldestname, age:$oldest\n";
