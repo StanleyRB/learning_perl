@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+use v5.24;
+
+#ex1
+#use Module::CoreList qw/ /;
+#my %modules = %{ $Module::CoreList::version{5.024} };
+#print join "\n", keys %modules;
+
+#ex2
+use Time::Moment;
+
+unless (defined $ARGV[1]) {
+	die "Usage:$0 year month\n";
+}
+my $year = $ARGV[0];
+my $month = $ARGV[1];
+my $dt0 = Time::Moment->new(
+	year	=> $year,
+	month	=> $month,
+);
+
+my $dt1 = Time::Moment->now;
+
+my $deltayear = $dt0->delta_years($dt1);
+my $deltamonth = $dt0->delta_months($dt1) % 12;
+print "$deltayear years and $deltamonth months\n";
