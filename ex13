@@ -1,0 +1,60 @@
+#!/usr/bin/perl
+use v5.24;
+
+#ex1,2
+#print "Input the directory you want to switch:";
+#my $dir = <STDIN>;
+#chomp $dir;
+#if ($dir =~ /\A\s*\z/) {
+#	chdir or die "Cannot change to home directory:$!";
+#} else {
+#	chdir $dir or die "Cannot change to directory $dir:$!";
+#}
+#my @files = <* .*>;
+#foreach (@files) {
+#	print "$_\n";
+#	say;
+#}
+
+#ex3
+#opendir my $dh, ".";
+#while (my $name = readdir($dh)) {
+#	next if $name =~ /\A\./;
+#	say $name;
+#}
+
+#ex4
+#print "Type the file you want to delete:";
+#chomp(my $is = <STDIN>);
+#my @files = split ' ',  $is;
+#foreach (@files) {
+#	unlink $_ or warn "Cannot unlink $_:$!\n";
+#}
+
+#ex5
+#use File::Basename qw / /;
+#use File::Spec;
+#
+#$ARGV[1] = File::Spec->catfile($ARGV[1], File::Basename::basename $ARGV[0])
+#	if -d $ARGV[1];
+#rename $ARGV[0] => $ARGV[1] or warn "Move file $ARGV[0] error:$!\n";
+
+#ex6,7
+#print $ARGV[0];
+#my $symlink = $ARGV[0] eq '-s';
+#shift @ARGV if $symlink;
+#my ($src, $des) = @ARGV;
+#if ($symlink) {
+#	symlink $src, $des 
+#		or warn "Cannot make soft link from $src to $des:$!\n";
+#} else {
+#	link $des, $src 
+#		or warn "Cannot link $des to $src:$!\n";
+#}
+
+#ex8
+opendir my $dh, ".";
+while (my $file = readdir($dh)) {
+	say "$file => ".readlink $file 
+		if -l $file;
+}
