@@ -1,0 +1,51 @@
+#!/usr/bin/perl
+use v5.24;
+
+#ex1
+#my @numbers = qw(17 1000 04 1.50
+#		3.14159 -10 1.5 4 2001
+#		90210 666);
+#my $longest = 0;
+#foreach (@numbers) {
+#	$longest = length  if length > $longest;
+#}
+#
+#@numbers = sort {$a <=> $b} @numbers;
+#
+#foreach (@numbers) {
+#	printf "%${longest}s\n", $_;
+#}
+
+
+#my @numbers;
+#push @numbers, split while <>;
+#foreach (sort {$a <=> $b} @numbers) {
+#	printf "%10s\n", $_;
+#}
+
+#ex2
+#my %last_name = qw{
+#		fred flintstone Wilma Flintstone Barney Rubble
+#		betty rubble Bamm-Bamm Rubble PEBBLES FLINTSTONE};
+#
+#my @key = sort {
+#	"\L$last_name{$b}" cmp "\L$last_name{$a}" or
+#	"\L{$b}" cmp "\L{$a}"
+#}keys %last_name;
+#foreach (@key) {
+#	print $_." ".$last_name{$_}."\n";
+#}
+
+#ex3
+print "Please input the substring:";
+chomp(my $substr = <STDIN>);
+my $string = "This is a test.";
+my @results = ();
+my $index = -1;
+while (1) {
+	$index = index $string, $substr, $index + 1;
+	last if $index == -1;
+	push @results, $index;
+}
+say "Positions are @results";
+
