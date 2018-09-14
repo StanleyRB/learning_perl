@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+use v5.24;
+
+#ex1
+#my $dir = "$ENV{'HOME'}/Documents/learning_perl";
+
+#foreach (`ls -l $dir`){
+#	print;
+#}
+
+#ex2
+#my $file = "$dir/ls.out";
+#open STDOUT, '>', $file or die "Cannot open $file for output:$!";
+#exec 'ls', '-l', "$dir";
+
+my %weekdays = ("Mon" => 1, 
+	"Tue" => 1, "Wed" => 1, 
+	"Thur" => 1, "Fri" => 1);
+my $date = `date`;
+$date =~ /(^\w)\s*/;
+print $^$&$';
+my $day = $^;
+print $day;
+
+
+
