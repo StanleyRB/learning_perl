@@ -13,14 +13,43 @@ use v5.24;
 #open STDOUT, '>', $file or die "Cannot open $file for output:$!";
 #exec 'ls', '-l', "$dir";
 
-my %weekdays = ("Mon" => 1, 
-	"Tue" => 1, "Wed" => 1, 
-	"Thur" => 1, "Fri" => 1);
-my $date = `date`;
-$date =~ /(^\w)\s*/;
-print $^$&$';
-my $day = $^;
-print $day;
+#ex3
+#my %weekdays = ("Mon" => 1, 
+#	"Tue" => 1, "Wed" => 1, 
+#	"Thur" => 1, "Fri" => 1);
+#my $date = `date`;
+#print $date;
+#$date =~ /.+\s.+\s(.+)\s.+\s.+/;
+#print $`.','.$&.','.$';
+#my $day = $&;
+#print $day;
 
+my @signals = qw/int hup segv/;
+my $count = 0;
+
+print "PID = $$\n";
+
+sub my_hup_handler { 
+	print "This is HUP, $count signals caught!\n";
+	++$count;
+}
+
+sub my_int_handler {
+	print "INT caught, exiting\n";
+	exit;
+}
+
+sub my_segv_handle {
+	print "This is SEGV, $count signals caught!\n";
+	++$count;
+}
+
+
+foreach my $signal (@signals) {
+	say $signal;
+	$SIG{"uc $signal"} = "my_{$signal}_handler";
+}
+
+while (1) { sleep 1};
 
 
