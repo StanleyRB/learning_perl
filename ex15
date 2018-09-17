@@ -16,14 +16,18 @@ use v5.24;
 #ex3
 #my %weekdays = ("Mon" => 1, 
 #	"Tue" => 1, "Wed" => 1, 
-#	"Thur" => 1, "Fri" => 1);
-#my $date = `date`;
-#print $date;
-#$date =~ /.+\s.+\s(.+)\s.+\s.+/;
-#print $`.','.$&.','.$';
-#my $day = $&;
-#print $day;
+#	"Thu" => 1, "Fri" => 1,
+#	"Sat" => 0, "Sun" => 0);
+##my $date = `date`;
+#my $date = "Mon 123 123";
+#$date =~ /\A\w+/;
+#if ($weekdays{"$&"}) {
+#	print "get to work\n";
+#} else {
+#	print "go play\n";
+#}
 
+#ex4
 my @signals = qw/int hup segv/;
 my $count = 0;
 
