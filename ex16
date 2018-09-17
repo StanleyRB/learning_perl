@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+use v5.24;
+
+#ex1
+#my $file = "input";
+#open my $fh, '<', $file
+#	or die "Cannot open '$file':$!";
+#chomp(my @strings = <$fh>);
+#
+#while (1) {
+#	print "Please input the string you want:";
+#	chomp(my $input = <STDIN>);
+#	last if $input eq "";
+#	my @matching_strings = eval {grep /$input/, @strings};
+#	if ($@) {
+#		print "Error:$@\n";
+#	} else {
+#		my $number_matching_strings = @matching_strings;
+#		print "There are $number_matching_strings matching strings:\n",
+#			map "$_\n", @matching_strings;
+#	}
+#}
+
+#ex2
+my @files = <*>;
+foreach my $file (@files) {
+	my ($atime, $mtime) = (stat $file)[-4, -3];
+	printf "%15s%20s%20s\n", $file, $atime, $mtime;
+}
+
+#ex3
+foreach my $file (glob ('*')) {
+	my ($atime, $mtime) = map {
+		my ($year, $month, $day) = (localtime($_))[5, 4, 3];
+		$year += 1990; $month += 1;
+		sprintf "%4d-%02d-%02d", $year, $month, $day;
+	} (stat $file)[-4, -3];
+	printf "%15s%20s%20s\n", $file, $atime, $mtime;
+}
+
